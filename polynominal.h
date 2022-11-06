@@ -8,9 +8,9 @@ private:
 public:
     //конструкторы
     Polynom() = default;
-    Polynom(std::vector<double>& coeff);
+    Polynom(const std::vector<double>& coeff);
     Polynom(int len);
-    Polynom(std::string input_data);
+    Polynom(const std::string& input_data);
     //Polynom(std::vector<Polynom> parsing_string, std::string data);
 
     // Операторы
@@ -21,7 +21,7 @@ public:
     Polynom integral();
 
     void print();
-    void parser(std::string input_data);
+    void parser(const std::string& input_data);
 };
 
 enum Actions {
@@ -34,8 +34,8 @@ enum Actions {
     EMP,
 };
 
-std::vector<Actions> get_actions(std::string line);
+std::vector<Actions> get_actions(const std::string& line);
 
 std::pair<std::vector<Actions>, std::vector<Polynom>> input_parsing();
 
-int calculate(std::pair<std::vector<Actions>, std::vector<Polynom>> parsed);
+int calculate(std::pair<std::vector<Actions>, std::vector<Polynom>>& parsed);

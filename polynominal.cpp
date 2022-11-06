@@ -3,7 +3,7 @@
 #include <vector>
 #include <regex>
 
-Polynom::Polynom(std::vector<double>& coeff) {
+Polynom::Polynom(const std::vector<double>& coeff) {
     this->coeff = std::move(coeff);
 };
 
@@ -13,7 +13,8 @@ Polynom::Polynom(int len){
     }
 };
 
-Polynom::Polynom(std::string input_data){
+Polynom::Polynom(const std::string& input_data1){
+    std::string input_data=input_data1;
     while(input_data[0] == '[' || input_data[0] == ' ')
         input_data.erase(0, 1);
 
@@ -105,7 +106,7 @@ void Polynom::print(){
     std::cout << "]" << std::endl;
 };
 
-std::vector<Actions> get_actions(std::string line) {
+std::vector<Actions> get_actions(const std::string& line) {
     std::vector<Actions> actions;
 
     std::istringstream iss(line);
@@ -172,7 +173,7 @@ std::pair<std::vector<Actions>, std::vector<Polynom>> input_parsing() {
     return res;
 }
 
-int calculate(std::pair<std::vector<Actions>, std::vector<Polynom>> parsed) {
+int calculate(std::pair<std::vector<Actions>, std::vector<Polynom>>& parsed) {
     for (int i = 0; i < parsed.first.size(); ++i) {
         switch (parsed.first[i]) {
             case SUM:
