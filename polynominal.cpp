@@ -3,7 +3,7 @@
 #include <vector>
 #include <regex>
 
-Polynom::Polynom(std::vector<double> coeff) {
+Polynom::Polynom(std::vector<double>& coeff) {
     this->coeff = std::move(coeff);
 };
 

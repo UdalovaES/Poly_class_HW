@@ -8,7 +8,7 @@ private:
 public:
     //конструкторы
     Polynom() = default;
-    Polynom(std::vector<double> coeff);
+    Polynom(std::vector<double>& coeff);
     Polynom(int len);
     Polynom(std::string input_data);
     //Polynom(std::vector<Polynom> parsing_string, std::string data);
